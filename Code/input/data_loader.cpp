@@ -5,7 +5,30 @@
 
 DataLoader::DataLoader() {}
 
-bool DataLoader::loadPallets(const std::string& filename) {
+bool DataLoader::loadTruckData(const std::string& filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << filename << std::endl;
+        return false;
+    }
+
+    std::string line;
+    // Skip header line
+    std::getline(file, line);
+
+    // Read truck data
+    if (std::getline(file, line)) {
+        Truck truck;
+        if (parseTruckLine(line, truck)) {
+            trucks.push_back(truck);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool DataLoader::loadPalletData(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
         std::cerr << "Error: Could not open file " << filename << std::endl;
@@ -26,27 +49,6 @@ bool DataLoader::loadPallets(const std::string& filename) {
     return !pallets.empty();
 }
 
-bool DataLoader::loadTrucks(const std::string& filename) {
-    std::ifstream file(filename);
-    if (!file.is_open()) {
-        std::cerr << "Error: Could not open file " << filename << std::endl;
-        return false;
-    }
-
-    std::string line;
-    // Skip header line
-    std::getline(file, line);
-
-    while (std::getline(file, line)) {
-        Truck truck;
-        if (parseTruckLine(line, truck)) {
-            trucks.push_back(truck);
-        }
-    }
-
-    return !trucks.empty();
-}
-
 bool DataLoader::parsePalletLine(const std::string& line, Pallet& pallet) {
     std::stringstream ss(line);
     std::string item;
@@ -56,22 +58,13 @@ bool DataLoader::parsePalletLine(const std::string& line, Pallet& pallet) {
         std::getline(ss, item, ',');
         pallet.id = std::stoi(item);
         
-        // Parse dimensions
-        std::getline(ss, item, ',');
-        pallet.width = std::stod(item);
-        
-        std::getline(ss, item, ',');
-        pallet.length = std::stod(item);
-        
-        std::getline(ss, item, ',');
-        pallet.height = std::stod(item);
-        
         // Parse weight
         std::getline(ss, item, ',');
         pallet.weight = std::stod(item);
         
-        // Parse type
-        std::getline(ss, pallet.type, ',');
+        // Parse profit
+        std::getline(ss, item, ',');
+        pallet.profit = std::stod(item);
         
         return true;
     } catch (const std::exception& e) {
@@ -85,23 +78,13 @@ bool DataLoader::parseTruckLine(const std::string& line, Truck& truck) {
     std::string item;
     
     try {
-        // Parse ID
+        // Parse capacity
         std::getline(ss, item, ',');
-        truck.id = std::stoi(item);
+        truck.capacity = std::stod(item);
         
-        // Parse dimensions
+        // Parse max pallets
         std::getline(ss, item, ',');
-        truck.maxWidth = std::stod(item);
-        
-        std::getline(ss, item, ',');
-        truck.maxLength = std::stod(item);
-        
-        std::getline(ss, item, ',');
-        truck.maxHeight = std::stod(item);
-        
-        // Parse max weight
-        std::getline(ss, item, ',');
-        truck.maxWeight = std::stod(item);
+        truck.maxPallets = std::stoi(item);
         
         return true;
     } catch (const std::exception& e) {

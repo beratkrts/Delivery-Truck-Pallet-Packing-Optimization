@@ -10,12 +10,12 @@ public:
     DataLoader();
     
     // Load data from CSV files
-    bool loadPallets(const std::string& filename);
-    bool loadTrucks(const std::string& filename);
+    bool loadTruckData(const std::string& filename);
+    bool loadPalletData(const std::string& filename);
     
     // Get loaded data
-    const std::vector<Pallet>& getPallets() const { return pallets; }
     const std::vector<Truck>& getTrucks() const { return trucks; }
+    const std::vector<Pallet>& getPallets() const { return pallets; }
     
     // Clear loaded data
     void clear();

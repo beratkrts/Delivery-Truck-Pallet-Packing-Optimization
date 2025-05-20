@@ -6,32 +6,25 @@
 
 struct Pallet {
     int id;
-    double width;
-    double length;
-    double height;
     double weight;
-    std::string type;  // e.g., "fragile", "standard", etc.
+    double profit;
 };
 
 struct Truck {
-    int id;
-    double maxWidth;
-    double maxLength;
-    double maxHeight;
-    double maxWeight;
+    double capacity;
+    int maxPallets;
     std::vector<Pallet> loadedPallets;
 };
 
 struct Solution {
     std::vector<Truck> trucks;
-    double totalUtilization;
+    double totalProfit;
     double executionTime;
     std::string algorithmName;
 };
 
 // Common utility functions
-double calculateVolume(const Pallet& pallet);
-double calculateVolume(const Truck& truck);
-double calculateUtilization(const Truck& truck);
+double calculateTotalWeight(const std::vector<Pallet>& pallets);
+double calculateTotalProfit(const std::vector<Pallet>& pallets);
 
 #endif // COMMON_H 
