@@ -1,0 +1,6 @@
+# ninja log v6
+1	475	1747747892946353171	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	109a62dc2cbc1cf5
+1	489	1747747892945685612	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	3b1371497884b4ae
+1	502	1747747892946202385	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	e103923db0fad4e9
+1	581	1747747892946471875	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	400bb040887e1ee0
+582	619	1747747893526484764	deliveryTruck	1e268c2b336641d5
