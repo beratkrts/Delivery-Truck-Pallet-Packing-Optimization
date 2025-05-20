@@ -8,6 +8,7 @@ Solution solveGreedy(const std::vector<Pallet>& pallets, const std::vector<Truck
     Solution solution;
     solution.algorithmName = "Greedy";
     // TODO: Implement greedy algorithm
+
     return solution;
 }
 

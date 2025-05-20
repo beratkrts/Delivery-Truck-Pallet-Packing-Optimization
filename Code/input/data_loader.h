@@ -14,7 +14,7 @@ public:
     bool loadPalletData(const std::string& filename);
     
     // Get loaded data
-    const std::vector<Truck>& getTrucks() const { return trucks; }
+    const Truck& getTruck() const { return truck; }
     const std::vector<Pallet>& getPallets() const { return pallets; }
     
     // Clear loaded data
@@ -22,7 +22,7 @@ public:
 
 private:
     std::vector<Pallet> pallets;
-    std::vector<Truck> trucks;
+    Truck truck;
     
     // Helper functions
     bool parsePalletLine(const std::string& line, Pallet& pallet);

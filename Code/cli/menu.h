@@ -33,12 +33,12 @@ private:
     std::string getAlgorithmName(int algorithmNumber) const;
 
     std::vector<Pallet> pallets;
-    std::vector<Truck> trucks;
+    Truck truck;
     Solution currentSolution;
     bool dataLoaded;
     int currentDataset;
     int currentAlgorithm;
-    static const int MAX_DATASETS = 4;  // Based on available datasets
+    static const int MAX_DATASETS = 10;  // Based on available datasets
     static const int MAX_ALGORITHMS = 5; // Number of available algorithms
 };
 

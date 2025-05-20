@@ -16,13 +16,9 @@ bool DataLoader::loadTruckData(const std::string& filename) {
     // Skip header line
     std::getline(file, line);
 
-    // Read truck data
+    // Read truck data (only one truck per dataset)
     if (std::getline(file, line)) {
-        Truck truck;
-        if (parseTruckLine(line, truck)) {
-            trucks.push_back(truck);
-            return true;
-        }
+        return parseTruckLine(line, truck);
     }
 
     return false;
@@ -95,5 +91,6 @@ bool DataLoader::parseTruckLine(const std::string& line, Truck& truck) {
 
 void DataLoader::clear() {
     pallets.clear();
-    trucks.clear();
+    // Reset truck to default values
+    truck = Truck();
 } 

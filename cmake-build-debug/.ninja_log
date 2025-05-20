@@ -14,3 +14,16 @@
 9	365	1747751661326626612	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
 10	484	1747751661327095379	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
 484	523	1747751661800853345	deliveryTruck	613c2189ddcf876f
+10	746	1747768615627944203	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+747	938	1747768616364514132	deliveryTruck	613c2189ddcf876f
+15	704	1747769586536143967	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	e21f1342e2281936
+704	806	1747769587225406249	deliveryTruck	613c2189ddcf876f
+7	610	1747769949684110112	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
+8	665	1747769949685096225	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	e21f1342e2281936
+8	713	1747769949684942775	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+713	810	1747769950390101738	deliveryTruck	613c2189ddcf876f
+16	475	1747769998662340617	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
+16	594	1747769998662643017	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+594	631	1747769999239943135	deliveryTruck	613c2189ddcf876f
+7	846	1747771017066995853	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+846	945	1747771017905615610	deliveryTruck	613c2189ddcf876f
