@@ -1,6 +1,16 @@
 # ninja log v6
-1	475	1747747892946353171	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	109a62dc2cbc1cf5
-1	489	1747747892945685612	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	3b1371497884b4ae
-1	502	1747747892946202385	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	e103923db0fad4e9
-1	581	1747747892946471875	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	400bb040887e1ee0
-582	619	1747747893526484764	deliveryTruck	1e268c2b336641d5
+18	590	1747749804017126614	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	e21f1342e2281936
+594	630	1747750649328983885	deliveryTruck	1e268c2b336641d5
+17	505	1747749804016563350	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
+17	546	1747749804016824212	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+9	594	1747750648743818161	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+2	62	1747751616679548736	build.ninja	70b11b8e205a8b53
+7	432	1747751623865012492	CMakeFiles/deliveryTruck.dir/Code/algorithms/brute_force.cpp.o	56b1d0ea7c831bf8
+7	454	1747751623865355975	CMakeFiles/deliveryTruck.dir/Code/algorithms/ilp_solver.cpp.o	1d2012758f5f762f
+7	463	1747751623865128487	CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o	edfbddeff05da7fb
+8	468	1747751623865858449	CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o	5969f7569226e3d0
+7	503	1747751623864874625	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+6	538	1747751623864414982	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
+9	365	1747751661326626612	CMakeFiles/deliveryTruck.dir/Code/main.cpp.o	e430c5e7d7aeee35
+10	484	1747751661327095379	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+484	523	1747751661800853345	deliveryTruck	613c2189ddcf876f

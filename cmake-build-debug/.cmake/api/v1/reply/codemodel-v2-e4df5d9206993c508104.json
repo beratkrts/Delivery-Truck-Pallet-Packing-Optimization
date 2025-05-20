@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.30"
+						"string" : "3.20"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "deliveryTruck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-deliveryTruck-Debug-ca41c0b297aa6b41f896.json",
+					"jsonFile" : "target-deliveryTruck-Debug-baff99ac597a33040ad5.json",
 					"name" : "deliveryTruck",
 					"projectIndex" : 0
 				}
