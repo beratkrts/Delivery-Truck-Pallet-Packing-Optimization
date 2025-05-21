@@ -36,3 +36,12 @@
 2410	2869	1747839046174124061	CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o	e21f1342e2281936
 8	742	1747839433336586686	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
 743	2019	1747839434070888231	deliveryTruck	613c2189ddcf876f
+8	523	1747842468042261492	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+525	626	1747842468559893976	deliveryTruck	613c2189ddcf876f
+7	629	1747842705811728339	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+629	664	1747842706434057840	deliveryTruck	613c2189ddcf876f
+18	623	1747843011430738739	CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o	df3641e2e1a14a3c
+18	679	1747843011431187138	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+679	771	1747843012091618741	deliveryTruck	613c2189ddcf876f
+9	595	1747843160157786640	CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o	2942fa37cea723cc
+596	630	1747843160744554233	deliveryTruck	613c2189ddcf876f

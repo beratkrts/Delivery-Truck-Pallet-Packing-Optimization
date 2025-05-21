@@ -212,7 +212,7 @@ void Menu::displayDatasetInfo() const {
     std::cout << "\nCurrent Dataset: " << currentDataset << "\n";
     std::cout << "Truck Capacity: " << truck.capacity << "\n";
     std::cout << "Max Pallets: " << truck.maxPallets << "\n";
-    std::cout << "Loaded Pallets: " << pallets.size() << "\n";
+    std::cout << "Loaded Pallets: " << currentSolution.selectedPallets.size() << "\n";
 }
 
 std::string Menu::getDatasetPath(int datasetNumber) const {
@@ -258,7 +258,7 @@ void Menu::displayResults() {
     std::cout << "Total Profit: " << currentSolution.totalProfit << "\n\n";
     
 
-    const auto& truck = currentSolution.truck;
+    Truck truck = currentSolution.truck;
     std::cout << "Truck:\n";
     std::cout << "Capacity: " << truck.capacity << "\n";
     std::cout << "Max Pallets: " << truck.maxPallets << "\n";
@@ -271,7 +271,7 @@ void Menu::displayResults() {
     std::cout << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
     std::cout << std::string(28, '-') << "\n";
         
-    for (const auto& pallet : truck.loadedPallets) {
+    for (const auto& pallet : currentSolution.selectedPallets) {
         std::cout << std::setw(8) << pallet.id
             << std::setw(10) << pallet.weight
             << std::setw(10) << pallet.profit << "\n";
@@ -282,6 +282,7 @@ void Menu::displayResults() {
     std::cout << std::string(28, '-') << "\n";
     std::cout << "Total Weight: " << totalWeight << "\n";
     std::cout << "Total Profit: " << totalProfit << "\n\n";
+    std::cout << "Execution Time: " << currentSolution.executionTime << "\n";
 
 }
 
@@ -305,7 +306,7 @@ void Menu::saveResults() {
     file << "Total Profit: " << currentSolution.totalProfit << "\n\n";
     
 
-        const auto& truck = currentSolution.truck;
+        Truck truck = currentSolution.truck;
         file << "Truck:\n";
         file << "Capacity: " << truck.capacity << "\n";
         file << "Max Pallets: " << truck.maxPallets << "\n";
@@ -315,7 +316,7 @@ void Menu::saveResults() {
         file << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
         file << std::string(28, '-') << "\n";
         
-        for (const auto& pallet : truck.loadedPallets) {
+        for (const auto& pallet : currentSolution.selectedPallets) {
             file << std::setw(8) << pallet.id 
                  << std::setw(10) << pallet.weight 
                  << std::setw(10) << pallet.profit << "\n";
