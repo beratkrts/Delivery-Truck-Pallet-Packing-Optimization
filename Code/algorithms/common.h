@@ -8,6 +8,7 @@ struct Pallet {
     int id;
     double weight;
     double profit;
+    double weightProfitRatio;  // Stored ratio of profit/weight
 };
 
 struct Truck {
@@ -17,7 +18,8 @@ struct Truck {
 };
 
 struct Solution {
-    std::vector<Truck> trucks;
+    Truck truck;
+    std::vector<Pallet> selectedPallets;  // Pallets that were selected to be loaded
     double totalProfit;
     double executionTime;
     std::string algorithmName;

@@ -132,10 +132,8 @@ void Menu::selectDataset() {
 
 void Menu::loadData() {
     DataLoader loader;
-    std::string truckFile = "datasets/TruckAndPallets_" +
-                            std::string(currentDataset < 10 ? "0" : "") +
-                            std::to_string(currentDataset) + ".csv";
-    std::string palletFile = "datasets/Pallets_" +
+    std::string truckFile = getDatasetPath(currentDataset);
+    std::string palletFile = "datasets/Pallets_" + 
                             std::string(currentDataset < 10 ? "0" : "") + 
                             std::to_string(currentDataset) + ".csv";
     
@@ -158,7 +156,7 @@ void Menu::loadData() {
     }
     
     // Store the loaded data
-    trucks = loader.getTrucks();
+    truck = loader.getTruck();
     pallets = loader.getPallets();
     
     // Validate the loaded data
@@ -174,8 +172,8 @@ void Menu::loadData() {
 }
 
 bool Menu::validateData() const {
-    if (trucks.empty() || pallets.empty()) {
-        std::cout << "Error: No trucks or pallets loaded.\n";
+    if (pallets.empty()) {
+        std::cout << "Error: No pallets loaded.\n";
         return false;
     }
     
@@ -198,15 +196,13 @@ bool Menu::validateData() const {
     }
     
     // Validate truck data
-    for (const auto& truck : trucks) {
-        if (truck.capacity <= 0) {
-            std::cout << "Error: Invalid truck capacity.\n";
-            return false;
-        }
-        if (truck.maxPallets <= 0) {
-            std::cout << "Error: Invalid maximum pallets per truck.\n";
-            return false;
-        }
+    if (truck.capacity <= 0) {
+        std::cout << "Error: Invalid truck capacity.\n";
+        return false;
+    }
+    if (truck.maxPallets <= 0) {
+        std::cout << "Error: Invalid maximum pallets per truck.\n";
+        return false;
     }
     
     return true;
@@ -214,19 +210,20 @@ bool Menu::validateData() const {
 
 void Menu::displayDatasetInfo() const {
     std::cout << "\nCurrent Dataset: " << currentDataset << "\n";
-    std::cout << "Loaded Trucks: " << trucks.size() << "\n";
+    std::cout << "Truck Capacity: " << truck.capacity << "\n";
+    std::cout << "Max Pallets: " << truck.maxPallets << "\n";
     std::cout << "Loaded Pallets: " << pallets.size() << "\n";
 }
 
 std::string Menu::getDatasetPath(int datasetNumber) const {
-    return "Code/datasets/TruckAndPallets_" + 
+    return "datasets/TruckAndPallets_" +
            std::string(datasetNumber < 10 ? "0" : "") + 
            std::to_string(datasetNumber) + ".csv";
 }
 
 void Menu::clearData() {
     pallets.clear();
-    trucks.clear();
+    truck = Truck();
     dataLoaded = false;
     std::cout << "Data cleared successfully.\n";
 }
@@ -234,19 +231,19 @@ void Menu::clearData() {
 void Menu::runAlgorithm() {
     switch (currentAlgorithm) {
         case 1:
-            currentSolution = solveGreedy(pallets, trucks);
+            currentSolution = solveGreedy(pallets, {truck});
             break;
         case 2:
-            currentSolution = solveBruteForce(pallets, trucks);
+            currentSolution = solveBruteForce(pallets, {truck});
             break;
         case 3:
-            currentSolution = solveDP(pallets, trucks);
+            currentSolution = solveDP(pallets, {truck});
             break;
         case 4:
-            currentSolution = solveILP(pallets, trucks);
+            currentSolution = solveILP(pallets, {truck});
             break;
         case 5:
-            currentSolution = solveBacktracking(pallets, trucks);
+            currentSolution = solveBacktracking(pallets, {truck});
             break;
         default:
             std::cout << "Invalid algorithm selection!\n";
@@ -260,32 +257,32 @@ void Menu::displayResults() {
     std::cout << "Algorithm: " << currentSolution.algorithmName << "\n";
     std::cout << "Total Profit: " << currentSolution.totalProfit << "\n\n";
     
-    for (size_t i = 0; i < currentSolution.trucks.size(); ++i) {
-        const auto& truck = currentSolution.trucks[i];
-        std::cout << "Truck " << (i + 1) << ":\n";
-        std::cout << "Capacity: " << truck.capacity << "\n";
-        std::cout << "Max Pallets: " << truck.maxPallets << "\n";
-        std::cout << "Loaded Pallets: " << truck.loadedPallets.size() << "\n";
+
+    const auto& truck = currentSolution.truck;
+    std::cout << "Truck:\n";
+    std::cout << "Capacity: " << truck.capacity << "\n";
+    std::cout << "Max Pallets: " << truck.maxPallets << "\n";
+    std::cout << "Loaded Pallets: " << truck.loadedPallets.size() << "\n";
         
-        double totalWeight = 0.0;
-        double totalProfit = 0.0;
+    double totalWeight = 0.0;
+    double totalProfit = 0.0;
         
-        std::cout << "\nPallet Details:\n";
-        std::cout << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
-        std::cout << std::string(28, '-') << "\n";
+    std::cout << "\nPallet Details:\n";
+    std::cout << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
+    std::cout << std::string(28, '-') << "\n";
         
-        for (const auto& pallet : truck.loadedPallets) {
-            std::cout << std::setw(8) << pallet.id 
-                      << std::setw(10) << pallet.weight 
-                      << std::setw(10) << pallet.profit << "\n";
-            totalWeight += pallet.weight;
-            totalProfit += pallet.profit;
-        }
-        
-        std::cout << std::string(28, '-') << "\n";
-        std::cout << "Total Weight: " << totalWeight << "\n";
-        std::cout << "Total Profit: " << totalProfit << "\n\n";
+    for (const auto& pallet : truck.loadedPallets) {
+        std::cout << std::setw(8) << pallet.id
+            << std::setw(10) << pallet.weight
+            << std::setw(10) << pallet.profit << "\n";
+        totalWeight += pallet.weight;
+        totalProfit += pallet.profit;
     }
+        
+    std::cout << std::string(28, '-') << "\n";
+    std::cout << "Total Weight: " << totalWeight << "\n";
+    std::cout << "Total Profit: " << totalProfit << "\n\n";
+
 }
 
 void Menu::saveResults() {
@@ -307,9 +304,9 @@ void Menu::saveResults() {
     file << "Algorithm: " << currentSolution.algorithmName << "\n";
     file << "Total Profit: " << currentSolution.totalProfit << "\n\n";
     
-    for (size_t i = 0; i < currentSolution.trucks.size(); ++i) {
-        const auto& truck = currentSolution.trucks[i];
-        file << "Truck " << (i + 1) << ":\n";
+
+        const auto& truck = currentSolution.truck;
+        file << "Truck:\n";
         file << "Capacity: " << truck.capacity << "\n";
         file << "Max Pallets: " << truck.maxPallets << "\n";
         file << "Loaded Pallets: " << truck.loadedPallets.size() << "\n\n";
@@ -324,7 +321,7 @@ void Menu::saveResults() {
                  << std::setw(10) << pallet.profit << "\n";
         }
         file << "\n";
-    }
+
     
     file.close();
     std::cout << "Results saved to " << filename << "\n";

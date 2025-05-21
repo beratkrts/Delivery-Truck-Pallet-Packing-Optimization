@@ -4,10 +4,9 @@
 #include <vector>
 #include <iostream>
 
-Solution solveGreedy(const std::vector<Pallet>& pallets, const std::vector<Truck>& trucks) {
+Solution solveGreedy(const std::vector<Pallet>& pallets, const Truck& truck) {
     Solution solution;
     solution.algorithmName = "Greedy";
-    // TODO: Implement greedy algorithm
     return solution;
 }
 

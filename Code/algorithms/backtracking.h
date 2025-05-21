@@ -4,6 +4,6 @@
 #include "common.h"
 
 // Backtracking algorithm implementation
-Solution solveBacktracking(const std::vector<Pallet>& pallets, const std::vector<Truck>& trucks);
+Solution solveBacktracking(const std::vector<Pallet>& pallets, const Truck& truck);
 
 #endif // BACKTRACKING_H 

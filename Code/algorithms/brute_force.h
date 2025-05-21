@@ -4,6 +4,6 @@
 #include "common.h"
 
 // Brute force algorithm implementation
-Solution solveBruteForce(const std::vector<Pallet>& pallets, const std::vector<Truck>& trucks);
+Solution solveBruteForce(const std::vector<Pallet>& pallets, const Truck& truck);
 
 #endif // BRUTE_FORCE_H 
