@@ -18,7 +18,11 @@ DA2025_PRJ2_G<group_number>/
    - C++ compiler (g++ or clang++)
    - Make
    - Doxygen (for documentation)
-
+   - OR-Tools C++ library (https://developers.google.com/optimization/install/cpp)
+   - On macOS
+    ```bash
+    brew install or-tools
+    ```
 2. Build the project:
    ```bash
    make

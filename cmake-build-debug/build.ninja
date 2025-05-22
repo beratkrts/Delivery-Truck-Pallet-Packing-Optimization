@@ -52,56 +52,56 @@ build cmake_object_order_depends_target_deliveryTruck: phony || .
 build CMakeFiles/deliveryTruck.dir/Code/main.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/main.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code
 
 build CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/algorithms/greedy.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/algorithms
 
 build CMakeFiles/deliveryTruck.dir/Code/algorithms/brute_force.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/algorithms/brute_force.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/algorithms/brute_force.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/algorithms
 
 build CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/algorithms/dp.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/algorithms
 
 build CMakeFiles/deliveryTruck.dir/Code/algorithms/ilp_solver.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/algorithms/ilp_solver.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/algorithms/ilp_solver.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/algorithms
 
 build CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/algorithms/backtracking.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/algorithms
 
 build CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/cli/menu.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/cli
 
 build CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o: CXX_COMPILER__deliveryTruck_unscanned_Debug /Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code/input/data_loader.cpp || cmake_object_order_depends_target_deliveryTruck
   DEP_FILE = CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7 -fcolor-diagnostics
-  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck
+  INCLUDES = -I/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code -I/opt/homebrew/include
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   OBJECT_FILE_DIR = CMakeFiles/deliveryTruck.dir/Code/input
 
@@ -113,8 +113,9 @@ build CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o: CXX_COMPILER__d
 #############################################
 # Link the executable deliveryTruck
 
-build deliveryTruck: CXX_EXECUTABLE_LINKER__deliveryTruck_Debug CMakeFiles/deliveryTruck.dir/Code/main.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/brute_force.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/ilp_solver.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o
+build deliveryTruck: CXX_EXECUTABLE_LINKER__deliveryTruck_Debug CMakeFiles/deliveryTruck.dir/Code/main.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/greedy.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/brute_force.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/ilp_solver.cpp.o CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o CMakeFiles/deliveryTruck.dir/Code/cli/menu.cpp.o CMakeFiles/deliveryTruck.dir/Code/input/data_loader.cpp.o | /opt/homebrew/lib/libortools.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -mmacosx-version-min=14.7
+  LINK_LIBRARIES = /opt/homebrew/lib/libortools.dylib
   OBJECT_DIR = CMakeFiles/deliveryTruck.dir
   POST_BUILD = :
   PRE_LINK = :

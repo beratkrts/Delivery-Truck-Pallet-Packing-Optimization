@@ -25,8 +25,5 @@ struct Solution {
     std::string algorithmName;
 };
 
-// Common utility functions
-double calculateTotalWeight(const std::vector<Pallet>& pallets);
-double calculateTotalProfit(const std::vector<Pallet>& pallets);
 
 #endif // COMMON_H 

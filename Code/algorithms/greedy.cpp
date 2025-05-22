@@ -34,23 +34,7 @@ Solution solveGreedy(const std::vector<Pallet>& pallets, const Truck& truck) {
             solution.totalProfit += pallet.profit;
         }
     }
-
+    auto end = std::chrono::high_resolution_clock::now();
+    solution.executionTime = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     return solution;
 }
-
-// Implementation of utility functions from common.h
-double calculateTotalWeight(const std::vector<Pallet>& pallets) {
-    double total = 0.0;
-    for (const auto& pallet : pallets) {
-        total += pallet.weight;
-    }
-    return total;
-}
-
-double calculateTotalProfit(const std::vector<Pallet>& pallets) {
-    double total = 0.0;
-    for (const auto& pallet : pallets) {
-        total += pallet.profit;
-    }
-    return total;
-} 

@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_libraries",
 			"target_include_directories"
 		],
 		"files" : 
@@ -25,13 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 33,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 36,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 44,
 				"parent" : 0
 			}
 		]
@@ -48,8 +55,12 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
-					"path" : "/Users/beratkaratasoglu/CLionProjects/deliveryTruck"
+					"backtrace" : 3,
+					"path" : "/Users/beratkaratasoglu/CLionProjects/deliveryTruck/Code"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/opt/homebrew/include"
 				}
 			],
 			"language" : "CXX",
@@ -86,6 +97,11 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libortools.dylib",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
