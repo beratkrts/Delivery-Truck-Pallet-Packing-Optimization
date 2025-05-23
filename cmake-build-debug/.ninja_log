@@ -11,3 +11,11 @@
 23	507	1747943823619763074	CMakeFiles/deliveryTruck.dir/Code/algorithms/backtracking.cpp.o	799a1eacdb71bb77
 2	408	1747944066769547118	build.ninja	70b11b8e205a8b53
 19	112	1747944066798334761	deliveryTruck	dcd6feeb350d5a0b
+26	542	1748016723563078481	CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o	ae9906459dddb5ef
+543	729	1748016724080099043	deliveryTruck	dcd6feeb350d5a0b
+9	540	1748017116494813062	CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o	ae9906459dddb5ef
+540	642	1748017117026297810	deliveryTruck	dcd6feeb350d5a0b
+13	690	1748017349946887235	CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o	ae9906459dddb5ef
+690	798	1748017350623966911	deliveryTruck	dcd6feeb350d5a0b
+11	677	1748017638410599275	CMakeFiles/deliveryTruck.dir/Code/algorithms/dp.cpp.o	ae9906459dddb5ef
+678	780	1748017639077243456	deliveryTruck	dcd6feeb350d5a0b
