@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "deliveryTruck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-deliveryTruck-Debug-baff99ac597a33040ad5.json",
+					"jsonFile" : "target-deliveryTruck-Debug-8ccd49e976fed66180d3.json",
 					"name" : "deliveryTruck",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/beratkaratasoglu/CLionProjects/deliveryTruck/cmake-build-debug",
-		"source" : "/Users/beratkaratasoglu/CLionProjects/deliveryTruck"
+		"build" : "C:/Users/ladie/CLionProjects/Delivery-Truck-Pallet-Packing-Optimization-fin/cmake-build-debug",
+		"source" : "C:/Users/ladie/CLionProjects/Delivery-Truck-Pallet-Packing-Optimization-fin"
 	},
 	"version" : 
 	{

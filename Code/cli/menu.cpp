@@ -4,6 +4,8 @@
 #include <iomanip>
 #include <fstream>
 #include <filesystem>
+#include <algorithm>
+
 #include "../algorithms/greedy.h"
 
 Menu::Menu() : dataLoaded(false), currentDataset(1), currentAlgorithm(1) {}

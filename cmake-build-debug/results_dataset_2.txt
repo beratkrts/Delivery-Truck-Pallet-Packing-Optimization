@@ -1,6 +1,6 @@
 === Allocation Results ===
 Dataset: 2
-Algorithm: Greedy
+Algorithm: Brute Force
 Total Profit: 32
 
 Truck 1:
@@ -12,8 +12,8 @@ Pallet Details:
       ID    Weight   Profit
 ----------------------------
        4        64        25
-      14         3         1
-      12         7         2
       11        18         3
+      12         7         2
       13         6         1
+      14         3         1
 
