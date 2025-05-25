@@ -5,6 +5,40 @@
 // Time limit in seconds
 constexpr double TIME_LIMIT = 10.0; // 10 seconds limit
 
+/**
+ * @brief Resolve o problema de seleção de pallets para um caminhão usando força bruta.
+ * @brief [EN] Solves the pallet selection problem for a truck using brute force.
+ *
+ * Esta função tenta todas as combinações possíveis de pallets para encontrar o conjunto
+ * com o maior lucro possível que não ultrapasse a capacidade máxima do caminhão.
+ * A execução é limitada por tempo para evitar processamento excessivo.
+ *
+ * [EN] This function tests all possible combinations of pallets to find the subset
+ * with the highest possible profit that does not exceed the truck's maximum capacity.
+ * Execution is time-limited to prevent excessive processing.
+ *
+ * @param pallets Vetor contendo os pallets disponíveis, cada um com peso e lucro.
+ * [EN] Vector containing the available pallets, each with weight and profit.
+ *
+ * @param truck Caminhão com capacidade máxima de carga.
+ * [EN] Truck with maximum load capacity.
+ *
+ * @return Solution Objeto contendo o resultado da execução: pallets selecionados,
+ * lucro total, tempo de execução, nome do algoritmo e se foi interrompido por limite de tempo.
+ * [EN] Object containing the execution result: selected pallets, total profit,
+ * execution time, algorithm name, and whether it was terminated due to the time limit.
+ *
+ * @complexity Time Complexity: O(2^n)
+ * The time complexity is O(2^n) because the algorithm checks all possible subsets of pallets.
+ * For each of the n pallets, there are 2 choices: either include it in the subset or not.
+ * This results in 2^n possible combinations to check.
+ *
+ * @complexity Space Complexity: O(n)
+ * The space complexity is O(n) due to the storage required for the selected pallets.
+ * The selectedPallets vector can grow up to size n in the worst case.
+ * Additionally, the recursion stack or loop variables use constant space.
+ */
+
 Solution solveBruteForce(const std::vector<Pallet>& pallets, const Truck& truck) {
     auto start = std::chrono::high_resolution_clock::now();
     Solution solution;
