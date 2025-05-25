@@ -16,14 +16,9 @@ Solution solveILP(const std::vector<Pallet>& pallets, const Truck& truck) {
         x[i] = solver.MakeIntVar(0, 1, "x" + std::to_string(i));
     }
     //Capacity constraint
-    MPConstraint* ct1 = solver.MakeRowConstraint(0, truck.capacity);
+    MPConstraint* ct = solver.MakeRowConstraint(0, truck.capacity);
     for (int i = 0; i < n; ++i) {
-        ct1->SetCoefficient(x[i], pallets[i].weight);
-    }
-    //Max Pallets Constraint
-    MPConstraint* ct2 = solver.MakeRowConstraint(0, truck.maxPallets);
-    for (int i = 0; i < n; ++i) {
-        ct2->SetCoefficient(x[i], 1);
+        ct->SetCoefficient(x[i], pallets[i].weight);
     }
 
     //Objective

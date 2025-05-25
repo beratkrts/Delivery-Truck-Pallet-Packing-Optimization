@@ -26,8 +26,7 @@ Solution solveGreedy(const std::vector<Pallet>& pallets, const Truck& truck) {
     
     // Select pallets greedily based on weight-to-profit ratio
     for (const auto& pallet : sortedPallets) {
-        if (currentWeight + pallet.weight <= truck.capacity && 
-            palletCount < truck.maxPallets) {
+        if (currentWeight + pallet.weight <= truck.capacity) {
             solution.selectedPallets.push_back(pallet);
             currentWeight += pallet.weight;
             palletCount++;

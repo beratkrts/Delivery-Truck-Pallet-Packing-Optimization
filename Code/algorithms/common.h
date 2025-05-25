@@ -13,16 +13,17 @@ struct Pallet {
 
 struct Truck {
     double capacity;
-    int maxPallets;
     std::vector<Pallet> loadedPallets;
 };
 
 struct Solution {
-    Truck truck;
-    std::vector<Pallet> selectedPallets;  // Pallets that were selected to be loaded
-    double totalProfit;
-    double executionTime;
     std::string algorithmName;
+    Truck truck;
+    std::vector<Pallet> selectedPallets;
+    double totalProfit;
+    double executionTime;  // in seconds
+    bool terminated;       // indicates if algorithm was terminated due to time limit
+    double estimatedTotalTime;  // estimated total time in seconds if algorithm were to complete
 };
 
 

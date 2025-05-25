@@ -80,10 +80,6 @@ bool DataLoader::parseTruckLine(const std::string& line, Truck& truck) {
         std::getline(ss, item, ',');
         truck.capacity = std::stod(item);
         
-        // Parse max pallets
-        std::getline(ss, item, ',');
-        truck.maxPallets = std::stoi(item);
-        
         return true;
     } catch (const std::exception& e) {
         std::cerr << "Error parsing truck line: " << e.what() << std::endl;

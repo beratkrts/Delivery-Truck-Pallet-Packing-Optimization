@@ -12,12 +12,12 @@ void Menu::run() {
     while (true) {
         displayMainMenu();
         int choice;
-        std::cout << "Enter your choice: ";
+        std::cout << "\nEnter your choice (1-8): ";
         
         if (!(std::cin >> choice)) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Invalid input. Please enter a number.\n";
+            std::cout << "❌ Invalid input. Please enter a number between 1 and 8.\n";
             continue;
         }
         
@@ -28,76 +28,101 @@ void Menu::run() {
                 selectDataset();
                 break;
             case 2:
-                selectAlgorithm();
+                if (dataLoaded) {
+                    selectAlgorithm();
+                } else {
+                    std::cout << "❌ Please load data first!\n";
+                }
                 break;
             case 3:
                 if (dataLoaded) {
+                    std::cout << "\n🚀 Running " << getAlgorithmName(currentAlgorithm) << " algorithm...\n";
                     runAlgorithm();
                 } else {
-                    std::cout << "Please load data first!\n";
+                    std::cout << "❌ Please load data first!\n";
                 }
                 break;
             case 4:
                 if (dataLoaded) {
-                    displayResults();
+                    runAllAlgorithms();
                 } else {
-                    std::cout << "No results to display!\n";
+                    std::cout << "❌ Please load data first!\n";
                 }
                 break;
             case 5:
                 if (dataLoaded) {
-                    saveResults();
+                    displayResults();
                 } else {
-                    std::cout << "No results to save!\n";
+                    std::cout << "❌ No results to display! Please run some algorithms first.\n";
                 }
                 break;
             case 6:
-                clearData();
+                if (dataLoaded) {
+                    clearData();
+                } else {
+                    std::cout << "❌ No data to clear!\n";
+                }
                 break;
             case 7:
+                displayHelp();
+                break;
+            case 8:
                 exitProgram();
                 return;
             default:
-                std::cout << "Invalid choice. Please try again.\n";
+                std::cout << "❌ Invalid choice. Please enter a number between 1 and 8.\n";
         }
     }
 }
 
 void Menu::displayMainMenu() {
-    std::cout << "\n=== Delivery Truck Optimization ===\n"
-              << "1. Select and Load Dataset\n"
-              << "2. Select Algorithm\n"
-              << "3. Run Algorithm\n"
-              << "4. Display Results\n"
-              << "5. Save Results\n"
-              << "6. Clear Data\n"
-              << "7. Exit\n";
+    std::cout << "\n╔════════════════════════════════════════╗\n"
+              << "║      Delivery Truck Optimization       ║\n"
+              << "╠════════════════════════════════════════╣\n"
+              << "║ 1. Select and Load Dataset             ║\n"
+              << "║ 2. Select Algorithm                    ║\n"
+              << "║ 3. Run Selected Algorithm              ║\n"
+              << "║ 4. Run All Algorithms                  ║\n"
+              << "║ 5. Display Results                     ║\n"
+              << "║ 6. Clear Data                          ║\n"
+              << "║ 7. Help                                ║\n"
+              << "║ 8. Exit                                ║\n"
+              << "╚════════════════════════════════════════╝\n";
     
     if (dataLoaded) {
+        std::cout << "\n📦 Current Status:\n";
         displayDatasetInfo();
-        std::cout << "Selected Algorithm: " << getAlgorithmName(currentAlgorithm) << "\n";
+        std::cout << "🔧 Selected Algorithm: " << getAlgorithmName(currentAlgorithm) << "\n";
+    } else {
+        std::cout << "\n⚠️  Please select and load a dataset first!\n";
     }
 }
 
 void Menu::selectAlgorithm() {
-    std::cout << "\nAvailable Algorithms:\n"
-              << "1. Greedy\n"
-              << "2. Brute Force\n"
-              << "3. Dynamic Programming\n"
-              << "4. Integer Linear Programming\n"
-              << "5. Backtracking\n";
+    std::cout << "\n╔════════════════════════════════════════╗\n"
+              << "║         Available Algorithms           ║\n"
+              << "╠════════════════════════════════════════╣\n"
+              << "║ 1. Greedy                             ║\n"
+              << "║    - Fast but may not be optimal      ║\n"
+              << "║ 2. Brute Force                        ║\n"
+              << "║    - Optimal but slow for large sets  ║\n"
+              << "║ 3. Dynamic Programming                ║\n"
+              << "║    - Efficient for medium datasets    ║\n"
+              << "║ 4. Integer Linear Programming         ║\n"
+              << "║    - Optimal solution using OR-Tools  ║\n"
+              << "╚════════════════════════════════════════╝\n";
     
     int choice;
-    std::cout << "Select algorithm (1-" << MAX_ALGORITHMS << "): ";
+    std::cout << "\nSelect algorithm (1-" << MAX_ALGORITHMS << "): ";
     if (!(std::cin >> choice) || choice < 1 || choice > MAX_ALGORITHMS) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid algorithm selection.\n";
+        std::cout << "❌ Invalid algorithm selection. Please enter a number between 1 and " << MAX_ALGORITHMS << ".\n";
         return;
     }
     
     currentAlgorithm = choice;
-    std::cout << "Selected algorithm: " << getAlgorithmName(currentAlgorithm) << "\n";
+    std::cout << "✅ Selected algorithm: " << getAlgorithmName(currentAlgorithm) << "\n";
 }
 
 std::string Menu::getAlgorithmName(int algorithmNumber) const {
@@ -106,23 +131,27 @@ std::string Menu::getAlgorithmName(int algorithmNumber) const {
         case 2: return "Brute Force";
         case 3: return "Dynamic Programming";
         case 4: return "Integer Linear Programming";
-        case 5: return "Backtracking";
         default: return "Unknown";
     }
 }
 
 void Menu::selectDataset() {
-    std::cout << "\nAvailable Datasets:\n";
+    std::cout << "\n╔════════════════════════════════════════╗\n"
+              << "║         Available Datasets             ║\n"
+              << "╠════════════════════════════════════════╣\n";
+    
     for (int i = 1; i <= MAX_DATASETS; ++i) {
-        std::cout << i << ". Dataset " << i << "\n";
+        std::cout << "║ " << std::setw(2) << i << ". Dataset " << std::setw(2) << i 
+                  << std::string(25, ' ') << "║\n";
     }
+    std::cout << "╚════════════════════════════════════════╝\n";
     
     int choice;
-    std::cout << "Select dataset (1-" << MAX_DATASETS << "): ";
+    std::cout << "\nSelect dataset (1-" << MAX_DATASETS << "): ";
     if (!(std::cin >> choice) || choice < 1 || choice > MAX_DATASETS) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid dataset selection.\n";
+        std::cout << "❌ Invalid dataset selection. Please enter a number between 1 and " << MAX_DATASETS << ".\n";
         return;
     }
     
@@ -200,19 +229,14 @@ bool Menu::validateData() const {
         std::cout << "Error: Invalid truck capacity.\n";
         return false;
     }
-    if (truck.maxPallets <= 0) {
-        std::cout << "Error: Invalid maximum pallets per truck.\n";
-        return false;
-    }
     
     return true;
 }
 
 void Menu::displayDatasetInfo() const {
     std::cout << "\nCurrent Dataset: " << currentDataset << "\n";
-    std::cout << "Truck Capacity: " << truck.capacity << "\n";
-    std::cout << "Max Pallets: " << truck.maxPallets << "\n";
-    std::cout << "Loaded Pallets: " << currentSolution.selectedPallets.size() << "\n";
+    std::cout << "Truck Capacity: " << std::fixed << std::setprecision(2) << truck.capacity << " kg\n";
+    std::cout << "Total Available Pallets: " << pallets.size() << "\n";
 }
 
 std::string Menu::getDatasetPath(int datasetNumber) const {
@@ -224,110 +248,161 @@ std::string Menu::getDatasetPath(int datasetNumber) const {
 void Menu::clearData() {
     pallets.clear();
     truck = Truck();
+    algorithmResults.clear();
     dataLoaded = false;
-    std::cout << "Data cleared successfully.\n";
+    std::cout << "✅ Data and results cleared successfully.\n";
 }
 
 void Menu::runAlgorithm() {
+    Solution solution;
     switch (currentAlgorithm) {
         case 1:
-            currentSolution = solveGreedy(pallets, {truck});
+            solution = solveGreedy(pallets, {truck});
             break;
         case 2:
-            currentSolution = solveBruteForce(pallets, {truck});
+            solution = solveBruteForce(pallets, {truck});
             break;
         case 3:
-            currentSolution = solveDP(pallets, {truck});
+            solution = solveDP(pallets, {truck});
             break;
         case 4:
-            currentSolution = solveILP(pallets, {truck});
-            break;
-        case 5:
-            currentSolution = solveBacktracking(pallets, {truck});
+            solution = solveILP(pallets, {truck});
             break;
         default:
             std::cout << "Invalid algorithm selection!\n";
             return;
     }
-    std::cout << "Algorithm completed successfully!\n";
+    
+    // Store the result
+    algorithmResults[currentAlgorithm] = solution;
+    
+    std::cout << "\n✅ Algorithm completed successfully!\n";
+    std::cout << "\n📊 Current Results:\n";
+    displaySingleResult(solution);
+}
+
+void Menu::displaySingleResult(const Solution& solution) const {
+    std::cout << "\n╔════════════════════════════════════════════════════╗\n"
+              << "║              Detailed Results                      ║\n"
+              << "╠════════════════════════════════════════════════════╣\n"
+              << "║ Algorithm: " << std::setw(40) << std::left << solution.algorithmName << "║\n"
+              << "║ Truck Capacity: " << std::setw(32) << std::fixed << std::setprecision(2) << solution.truck.capacity << "kg ║\n"
+              << "║ Total Profit: $" << std::setw(36) << std::fixed << std::setprecision(2) << solution.totalProfit << "║\n"
+              << "║ Execution Time: " << std::setw(32) << std::fixed << std::setprecision(2) << solution.executionTime << "ms ║\n";
+
+    if (solution.terminated) {
+        std::cout << "╠════════════════════════════════════════════════════╣\n"
+                  << "║ !!!Algorithm terminated at 30s limit!!!            ║\n"
+                  << "║ Estimated total time: " << std::setw(27) << std::fixed << std::setprecision(2) << solution.estimatedTotalTime << "s ║\n"
+                  << "║ (approximately " << std::setw(33) << std::fixed << std::setprecision(2) << solution.estimatedTotalTime / 3600.0 << "h) ║\n"
+                  << "║ Results shown are best found so far                ║\n";
+    }
+
+    std::cout << "╠════════════════════════════════════════════════════╣\n"
+              << "║ Selected Pallets:                                  ║\n"
+              << "║ ID    Weight          Profit                       ║\n"
+              << "╠════════════════════════════════════════════════════╣\n";
+
+    for (const auto& pallet : solution.selectedPallets) {
+        std::cout << "║ " << std::setw(6) << pallet.id
+                  << std::setw(19) << std::fixed << std::setprecision(2) << pallet.weight
+                  << std::setw(8) << std::fixed << std::setprecision(2) << pallet.profit
+                  << std::string(18, ' ') << "║\n";
+    }
+    std::cout << "╚════════════════════════════════════════════════════╝\n\n";
 }
 
 void Menu::displayResults() {
-    std::cout << "\n=== Allocation Results ===\n";
-    std::cout << "Algorithm: " << currentSolution.algorithmName << "\n";
-    std::cout << "Total Profit: " << currentSolution.totalProfit << "\n\n";
-    
-
-    Truck truck = currentSolution.truck;
-    std::cout << "Truck:\n";
-    std::cout << "Capacity: " << truck.capacity << "\n";
-    std::cout << "Max Pallets: " << truck.maxPallets << "\n";
-    std::cout << "Loaded Pallets: " << truck.loadedPallets.size() << "\n";
-        
-    double totalWeight = 0.0;
-    double totalProfit = 0.0;
-        
-    std::cout << "\nPallet Details:\n";
-    std::cout << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
-    std::cout << std::string(28, '-') << "\n";
-        
-    for (const auto& pallet : currentSolution.selectedPallets) {
-        std::cout << std::setw(8) << pallet.id
-            << std::setw(10) << pallet.weight
-            << std::setw(10) << pallet.profit << "\n";
-        totalWeight += pallet.weight;
-        totalProfit += pallet.profit;
-    }
-        
-    std::cout << std::string(28, '-') << "\n";
-    std::cout << "Total Weight: " << totalWeight << "\n";
-    std::cout << "Total Profit: " << totalProfit << "\n\n";
-    std::cout << "Execution Time: " << currentSolution.executionTime << "\n";
-
-}
-
-void Menu::saveResults() {
-    if (!dataLoaded) {
-        std::cout << "No results to save!\n";
+    if (algorithmResults.empty()) {
+        std::cout << "❌ No results available! Please run some algorithms first.\n";
         return;
     }
-    
-    std::string filename = "results_dataset_" + std::to_string(currentDataset) + ".txt";
-    std::ofstream file(filename);
-    
-    if (!file.is_open()) {
-        std::cout << "Error: Could not open file for writing.\n";
-        return;
-    }
-    
-    file << "=== Allocation Results ===\n";
-    file << "Dataset: " << currentDataset << "\n";
-    file << "Algorithm: " << currentSolution.algorithmName << "\n";
-    file << "Total Profit: " << currentSolution.totalProfit << "\n\n";
-    
 
-        Truck truck = currentSolution.truck;
-        file << "Truck:\n";
-        file << "Capacity: " << truck.capacity << "\n";
-        file << "Max Pallets: " << truck.maxPallets << "\n";
-        file << "Loaded Pallets: " << truck.loadedPallets.size() << "\n\n";
+    std::cout << "\n╔═════════════════════════════════════════════════════════════════════════════════╗\n"
+              << "║                               Comparison Results                                ║\n"
+              << "╠═════════════════════════════════════════════════════════════════════════════════╣\n"
+              << "║ Algorithm                           Profit                           Time (ms)  ║\n"
+              << "╠═════════════════════════════════════════════════════════════════════════════════╣\n";
+
+    for (const auto& [algoNum, solution] : algorithmResults) {
+        std::cout << "║ " << std::setw(26) << std::left << getAlgorithmName(algoNum)
+                  << std::setw(17) << std::right << std::fixed << std::setprecision(2) << solution.totalProfit
+                  << std::setw(34) << std::fixed << std::setprecision(2) << solution.executionTime << "   ║\n";
         
-        file << "Pallet Details:\n";
-        file << std::setw(8) << "ID" << std::setw(10) << "Weight" << std::setw(10) << "Profit\n";
-        file << std::string(28, '-') << "\n";
-        
-        for (const auto& pallet : currentSolution.selectedPallets) {
-            file << std::setw(8) << pallet.id 
-                 << std::setw(10) << pallet.weight 
-                 << std::setw(10) << pallet.profit << "\n";
+        // Show termination info for brute force
+        if (solution.terminated) {
+            std::cout << "║ ⚠ Terminated at 30s -               Estimated Time: "
+                      << std::setw(26) << std::fixed << std::setprecision(2)
+                      << solution.estimatedTotalTime << "s ║\n";
         }
-        file << "\n";
+    }
+    std::cout << "╚═════════════════════════════════════════════════════════════════════════════════╝\n\n";
 
-    
-    file.close();
-    std::cout << "Results saved to " << filename << "\n";
+    // Ask if user wants to see detailed results
+    std::cout << "Would you like to see detailed results for a specific algorithm? (y/n): ";
+    char choice;
+    std::cin >> choice;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    if (choice == 'y' || choice == 'Y') {
+        std::cout << "\nSelect algorithm number (1-" << MAX_ALGORITHMS << "): ";
+        int algoChoice;
+        if (std::cin >> algoChoice && algoChoice >= 1 && algoChoice <= MAX_ALGORITHMS) {
+            auto it = algorithmResults.find(algoChoice);
+            if (it != algorithmResults.end()) {
+                displaySingleResult(it->second);
+            } else {
+                std::cout << "❌ No results available for this algorithm.\n";
+            }
+        } else {
+            std::cout << "❌ Invalid algorithm selection.\n";
+        }
+    }
 }
 
 void Menu::exitProgram() {
     std::cout << "Thank you for using the Delivery Truck Optimization program!\n";
+}
+
+void Menu::displayHelp() {
+    std::cout << "\n╔════════════════════════════════════════╗\n"
+              << "║             Help Guide                 ║\n"
+              << "╠════════════════════════════════════════╣\n"
+              << "║ 1. Select Dataset                      ║\n"
+              << "║    - Choose from available datasets    ║\n"
+              << "║ 2. Select Algorithm                    ║\n"
+              << "║    - Pick an algorithm to use          ║\n"
+              << "║ 3. Run Selected Algorithm              ║\n"
+              << "║    - Execute current algorithm         ║\n"
+              << "║ 4. Run All Algorithms                  ║\n"
+              << "║    - Execute all algorithms            ║\n"
+              << "║ 5. Display Results                     ║\n"
+              << "║    - View comparison of results        ║\n"
+              << "║ 6. Clear Data                          ║\n"
+              << "║    - Reset current dataset/algorithm   ║\n"
+              << "║ 7. Help                                ║\n"
+              << "║    - Show this help guide              ║\n"
+              << "║ 8. Exit                                ║\n"
+              << "║    - Close the program                 ║\n"
+              << "╚════════════════════════════════════════╝\n\n"
+              << "📝 Note: You must select a dataset before running algorithms.\n"
+              << "📊 Tip: Use 'Run All Algorithms' to compare all solutions at once.\n";
+}
+
+void Menu::runAllAlgorithms() {
+    std::cout << "\n🚀 Running all algorithms...\n\n";
+    
+    // Clear previous results
+    algorithmResults.clear();
+    
+    // Run each algorithm
+    for (int algo = 1; algo <= MAX_ALGORITHMS; ++algo) {
+        std::cout << "Running " << getAlgorithmName(algo) << "...\n";
+        currentAlgorithm = algo;
+        runAlgorithm();
+        std::cout << "\n";
+    }
+    
+    std::cout << "✅ All algorithms completed!\n\n";
+    displayResults();
 } 
