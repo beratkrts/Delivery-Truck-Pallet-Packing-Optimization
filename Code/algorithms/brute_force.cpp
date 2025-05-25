@@ -3,7 +3,7 @@
 #include <chrono>
 
 // Time limit in seconds
-constexpr double TIME_LIMIT = 10.0; // 10 seconds limit
+constexpr double TIME_LIMIT = 30.0; // 30 seconds limit
 
 /**
  * @brief Resolve o problema de seleção de pallets para um caminhão usando força bruta.

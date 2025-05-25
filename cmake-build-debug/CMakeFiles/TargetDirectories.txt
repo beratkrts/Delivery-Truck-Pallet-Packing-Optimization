@@ -1,0 +1,3 @@
+/Users/beratkaratasoglu/Documents/GitHub/Delivery-Truck-Pallet-Packing-Optimization/cmake-build-debug/CMakeFiles/deliveryTruck.dir
+/Users/beratkaratasoglu/Documents/GitHub/Delivery-Truck-Pallet-Packing-Optimization/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/beratkaratasoglu/Documents/GitHub/Delivery-Truck-Pallet-Packing-Optimization/cmake-build-debug/CMakeFiles/rebuild_cache.dir
